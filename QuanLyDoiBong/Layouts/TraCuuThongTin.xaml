@@ -1,0 +1,59 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.TraCuuThongTin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        mc:Ignorable="d"
+        Title="TraCuuThongTin" Height="720" Width="1280"
+        Left="0"
+        Top="0"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <Grid>
+            <Grid HorizontalAlignment="Left" 
+          Height="95" 
+          VerticalAlignment="Top" 
+          Width="1272" 
+          Background="{DynamicResource MY_BLUE}">
+                <Label Content="THÔNG TIN CHI TIẾT" HorizontalAlignment="Left" Margin="482,19,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="36" Foreground="White"/>
+                <Image Source="/Images/IconManHinh/TimKiem.png"
+                   Width="auto"
+                   Height="90"
+                   VerticalAlignment="Top"
+                   Margin="-522,-5,522,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="627" Margin="10,62,-8,0" VerticalAlignment="Top" Width="1270" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="62*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lbHoTen" Content="Họ tên:" HorizontalAlignment="Left" Margin="91,108,0,0" VerticalAlignment="Top" Cursor="" Background="{x:Null}" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <Label x:Name="lbNgaySinh" Content="Ngày sinh:" HorizontalAlignment="Left" Margin="91,155,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <Label x:Name="lbNamKinhNghiem" Content="Số năm kinh nghiệm:" HorizontalAlignment="Left" Margin="91,253,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <Label x:Name="lbChucVu" Content="Vị trí:" HorizontalAlignment="Left" Margin="91,445,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <Label x:Name="lbQueQuan" Content="Quê quán:" HorizontalAlignment="Left" Margin="91,300,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <Image x:Name="imgAvatar" Stretch="UniformToFill" Source="/Images/IconManHinh/avt.jpg" HorizontalAlignment="Left" Height="376" Margin="34,61,0,0" VerticalAlignment="Top" Width="529" OpacityMask="Black" Grid.Column="1"/>
+
+                <Button x:Name="btnThoat" Content="THOÁT" HorizontalAlignment="Left" Margin="447,552,0,0" VerticalAlignment="Top" Width="116" Background="{DynamicResource MY_GREEN}" BorderBrush="{DynamicResource MY_GREEN}" Foreground="White" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" Height="54" Grid.Column="1" Click="btnThoat_Click"/>
+                <Button x:Name="btnLuu" Content="LƯU" HorizontalAlignment="Left" Margin="243,552,0,0" VerticalAlignment="Top" Width="142" BorderBrush="{DynamicResource MY_GREEN}" Background="{DynamicResource MY_GREEN}" Foreground="White" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" Height="54" Grid.Column="1" Click="btnLuu_Click"/>
+                <Button x:Name="btnXoa" Content="XÓA" HorizontalAlignment="Left" Margin="34,552,0,0" VerticalAlignment="Top" Width="116" Background="{DynamicResource MY_GREEN}" BorderBrush="{DynamicResource MY_GREEN}" Foreground="White" FontSize="24" Height="54" Grid.Column="1" Click="btnXoa_Click"/>
+                <TextBox x:Name="txbHoTen" HorizontalAlignment="Left" Height="42" Margin="253,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" BorderBrush="{DynamicResource MY_BLUE}" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24"/>
+                <TextBox x:Name="txbNamKinhNghiem" HorizontalAlignment="Left" Height="42" Margin="424,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" BorderBrush="{DynamicResource MY_BLUE}" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <TextBox x:Name="txbChucVu" HorizontalAlignment="Left" Height="42" Margin="253,445,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" BorderBrush="{DynamicResource MY_BLUE}" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <TextBox x:Name="txbQueQuan" HorizontalAlignment="Left" Height="42" Margin="253,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" BorderBrush="{DynamicResource MY_BLUE}" FontSize="24" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"/>
+                <Label x:Name="lbMa" Content="Mã cầu thủ: " HorizontalAlignment="Left" Margin="91,61,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24"/>
+                <Label x:Name="lbMaDB" Content="Mã đội bóng: " HorizontalAlignment="Left" Margin="91,395,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24"/>
+                <Label x:Name="lbDiaChi" Content="Địa chỉ:" HorizontalAlignment="Left" Margin="91,202,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24"/>
+                <Label x:Name="lbSoBanThang" Content="Số bàn thắng: " HorizontalAlignment="Left" Margin="91,347,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Width="166"/>
+                <TextBox x:Name="txbMaCT" HorizontalAlignment="Left" Height="42" Margin="253,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="363" FontSize="24" BorderBrush="{DynamicResource MY_BLUE}" />
+                <TextBox x:Name="txbMaDB" HorizontalAlignment="Left" Height="42" Margin="253,398,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="363" FontSize="24" BorderBrush="{DynamicResource MY_BLUE}"/>
+                <TextBox x:Name="txbDiaChi" HorizontalAlignment="Left" Height="42" Margin="253,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="363" FontSize="24" BorderBrush="{DynamicResource MY_BLUE}"/>
+                <TextBox x:Name="txbSoBanThang" HorizontalAlignment="Left" Height="42" Margin="253,347,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="363" FontSize="24" BorderBrush="{DynamicResource MY_BLUE}"/>
+                <DatePicker x:Name="dtNgaySinh" HorizontalAlignment="Left" Margin="253,161,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" DisplayDate="2018-01-01" Width="363" BorderBrush="{DynamicResource MY_BLUE}"/>
+                <Button x:Name="tbnThayDoi" Content="Thay đổi" Grid.Column="1" HorizontalAlignment="Left" Margin="447,464,0,0" VerticalAlignment="Top" Width="99" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="20" Click="tbnThayDoi_Click"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

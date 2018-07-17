@@ -1,0 +1,731 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.PhanQuyen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        mc:Ignorable="d"
+        Title="Phân Quyền" Height="728" Width="1284"
+        Left="0"
+        Top="0"
+        ResizeMode="CanMinimize"
+        KeyDown="EnterEvent"
+        >
+
+    <Window.Resources>
+        <Style TargetType="{x:Type CheckBox}" x:Key="myCheckboxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="checkboxImage" Source="/Images/checkbox/normal.png" Width="32"/>
+                            <ContentPresenter/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Images/checkbox/checked.png"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsChecked" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Images/checkbox/moveover.png"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+
+    <Grid>
+        <!--Thanh ngang trên cùng-->
+        <StackPanel Background="{StaticResource MY_GRAY}" Height="10" VerticalAlignment="Top"/>
+
+        <!--Thanh ĐĂNG KÝ ĐỘI BÓNG-->
+        <StackPanel Background="{StaticResource MY_BLUE}" Height="80" VerticalAlignment="Top"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+            <Image Source="/Images/IconManHinh/PhanQuyen.png"
+                   Width="auto"
+                   Height="90"
+                   VerticalAlignment="Top"
+                   Margin="0,-5,0,0"/>
+            <TextBlock HorizontalAlignment="Left"    VerticalAlignment="Center"
+                       Margin="380,0,0,0"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       FontFamily="/Fonts/Roboto.ttf"
+                       Foreground="#ffffff">
+                PHÂN QUYỀN
+            </TextBlock>
+        </StackPanel>
+
+        <!--BTC-->
+        <Border CornerRadius="5" BorderThickness="3"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="715,120,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="130" Height="35"
+                            >
+            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"                               Text ="Ban tổ chức"
+                            FontSize="20"
+                             BorderThickness="0"
+                           HorizontalAlignment="Center"      VerticalAlignment="Center"
+                             
+                              >
+
+            </TextBox>
+        </Border>
+        <!--BQL-->
+        <Border CornerRadius="5" BorderThickness="3"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="905,120,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="130" Height="35"
+                            >
+            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"                               Text ="Ban quản lý"
+                            FontSize="20"
+                             BorderThickness="0"
+                           HorizontalAlignment="Center"      VerticalAlignment="Center"
+                             
+                              >
+
+            </TextBox>
+        </Border>
+        <!--GUEST-->
+        <Border CornerRadius="5" BorderThickness="3"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="1090,120,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="130" Height="35"
+                            >
+            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"                               Text ="Guest"
+                            FontSize="20"
+                             BorderThickness="0"
+                           HorizontalAlignment="Center"      VerticalAlignment="Center"
+                             
+                              >
+
+            </TextBox>
+        </Border>
+        
+        
+        <!--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+        <Grid 
+             HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Margin="30,170,10,0"
+                Width="1220"
+            Height="400">
+
+
+
+            <!--ĐỊNH NGHĨA CỘT-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <!--ĐỊNH NGHĨA HÀNG-->
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!--ROW - 0 ĐĂNG KÝ ĐỘI BÓNG-->
+            <Border Grid.Column="0" Grid.Row="0"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            1
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="0"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Đăng ký đội bóng
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="0"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC0" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="0"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL0" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="0"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G0" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 0-->
+
+            <!--ROW - 1 LƯU TRỮ TRỌNG TÀI-->
+            <Border Grid.Column="0" Grid.Row="1"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            2
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="1"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Lưu trữ trọng tài
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="1"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC1" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="1"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL1" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="1"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G1" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 0-->
+
+            <!--ROW - 2 Lập lịch thi đấu-->
+            <Border Grid.Column="0" Grid.Row="2"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            3
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="2"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Lập lịch thi đấu
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="2"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC2" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="2"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL2" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="2"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G2" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 2-->
+
+
+            <!--ROW - 3 LẬP BÁO CÁO GIẢI-->
+            <Border Grid.Column="0" Grid.Row="3"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            4
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="3"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Lập báo cáo giải
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="3"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC3" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="3"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL3" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="3"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G3" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 3-->
+
+
+            <!--ROW - 4 GHI NHẬN KẾT QUẢ-->
+            <Border Grid.Column="0" Grid.Row="4"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            5
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="4"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Ghi nhận kết quả
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="4"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC4" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="4"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL4" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="4"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G4" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 4-->
+
+            <!--ROW - 5 Quản lý tài khoản-->
+            <Border Grid.Column="0" Grid.Row="5"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            6
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="5"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Quản lý tài khoản
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="5"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC5" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="5"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL5" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="5"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G5" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 5-->
+
+            <!--ROW - 6 TẠO TÀI KHOẢN-->
+            <Border Grid.Column="0" Grid.Row="6"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            7
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="6"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Tạo tài khoản
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="6"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC6" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="6"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL6" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="6"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G6" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 6-->
+
+            <!--ROW - 7 PHÂN QUYỀN-->
+            <Border Grid.Column="0" Grid.Row="7"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            8
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="7"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Phân quyền
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="7"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC7" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="7"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL7" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="7"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G7" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 7-->
+
+            <!--ROW - 8 ĐỔI QUY ĐỊNH-->
+            <Border Grid.Column="0" Grid.Row="8"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            9
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="8"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Đổi quy định
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="8"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC8" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="8"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL8" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="8"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G8" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 8-->
+
+            <!--ROW - 9 Tra cứu thông tin-->
+            <Border Grid.Column="0" Grid.Row="9"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource MY_GRAY}">
+                <TextBlock Foreground="#5829A0" FontSize="20" 
+                 HorizontalAlignment="Center"
+                       >
+            10
+                </TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="9"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"
+                        
+                        >
+                <TextBlock Foreground="#5829A0" FontSize="20" HorizontalAlignment="Center" 
+                   >
+            Tra cứu thông tin 
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="9"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BTC9" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="3" Grid.Row="9"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="BQL9" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+
+            <Border Grid.Column="4" Grid.Row="9"
+                        BorderThickness="2"
+                         BorderBrush="{StaticResource MY_GRAY}"                     
+                >
+                <CheckBox Name="G9" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                         Style="{StaticResource myCheckboxStyle}"
+                          />
+            </Border>
+            <!--END 9-->
+
+            
+
+        </Grid>
+        <!--BUTTON THÊM-->
+        <Border CornerRadius="5" BorderThickness="4"
+                            BorderBrush="{StaticResource MY_GRAY}"
+                 Width="120" Height="50"
+                HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+                Margin="0,0,60,40"
+                >
+            <Button Background="{StaticResource MY_GREEN}"
+                    Name="btnLuuPhanQuyen"
+                    Click="btnLuuPhanQuyen_Click"
+                    >
+                <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0, 0, 0, 0"
+                           Foreground="#FFFFFF">
+                    LƯU
+                </TextBlock>
+            </Button>
+        </Border>
+    </Grid>
+</Window>

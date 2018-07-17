@@ -1,0 +1,386 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="QuanLyDoiBong.Layouts.DoiQuyDinh"
+        mc:Ignorable="d"
+       Title="Đổi quy định" Height="720" Width="1280" Top="0" Left="0" WindowStartupLocation="CenterScreen" VerticalAlignment="Center" 
+        ResizeMode="CanMinimize"
+        KeyDown="EnterEvent"
+    >
+    <StackPanel>
+        <Canvas Width="auto"
+                Height="50"
+                Background="{StaticResource MY_BLUE}">
+
+            <TextBlock FontSize="30"
+                       Canvas.Top="10"
+                       Canvas.Left="520"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/Fonts/Roboto-Thin.ttf"><Bold><Run Text="ĐỔI QUY ĐỊNH"/></Bold></TextBlock>
+            <Image Source="/Images/IconManHinh/ThayDoiQuyDinh.png"
+               Width="auto" Height="55"
+                   Canvas.Left="2"
+                   Canvas.Top="-2"/>
+        </Canvas>
+        <TabControl Height="600"
+                    Margin="0,50,0,0">
+            <!-- Tab bàn thắng -->
+            <TabItem Header="Bàn thắng"
+                     FontFamily="/Fonts/Roboto-Thin.ttf"
+                     FontSize="30"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"
+                     Margin="200,0,-200,0"
+                     >
+                <StackPanel>
+                    <Grid Height="50"/>
+                    <Grid Height="400">
+                        <ListView Margin="172,10,641,10" Name="lvLBT">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding MABT}" Width="160" />
+                                    <GridViewColumn Header="Loại Bàn Thắng" DisplayMemberBinding="{Binding TENBT}" Width="280"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <TextBlock Margin="732,179,0,185"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Thời điểm ghi bàn tối đa:" FontWeight="Bold"/></TextBlock>
+                        <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="67"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="1101,172,0,178" RenderTransformOrigin="2.46,0.6">
+                            <ComboBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                     FontSize="30" RenderTransformOrigin="12.886,0.614" Height="44" VerticalAlignment="Top"
+                                     Text="{Binding Path=m_THOI_DIEM_GHI_BAN_MAX, Mode=OneWayToSource}" 
+                                      >
+                                <System:String>90</System:String>
+                                <System:String>91</System:String>
+                                <System:String>92</System:String>
+                                <System:String>93</System:String>
+                                <System:String>94</System:String>
+                                <System:String>95</System:String>
+                                <System:String>96</System:String>
+
+                            </ComboBox>
+                        </Border>
+                    </Grid>
+                    <Grid Height="100">
+                        <Border Background="{StaticResource MY_BLUE}"
+                        Height="70"
+                        Width="160"
+                        CornerRadius="7"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Margin="900,0,0,0">
+                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                                x:Name="buttonDN2"
+                                Click="btnThayDoiQD_Click"
+                                Foreground="White"
+                                FontFamily="/Fonts/Roboto-Thin.ttf"
+                                FontSize="30"
+                                Height="55"
+                                Width="145" Margin="7.5">
+                                <Bold>
+                                    <Run Text="Thay đổi"/>
+                                </Bold>
+                            </Button>
+                        </Border>
+                        <Border Background="{StaticResource MY_BLUE}"
+                        Height="40"
+                        Width="100"
+                        CornerRadius="7"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Margin="500,0,0,0">
+                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                                x:Name="buttonADD"
+                                Click="btnADD_Click"
+                                Foreground="White"
+                                FontFamily="/Fonts/Roboto-Thin.ttf"
+                                FontSize="20"
+                                Height="40"
+                                Width="100">
+                                <Bold>
+                                    <Run Text="Thêm"/>
+                                </Bold>
+                            </Button>
+                        </Border>
+                        <Border Background="{StaticResource MY_BLUE}"
+                        Height="40"
+                        Width="100"
+                        CornerRadius="7"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Margin="350,0,0,0">
+                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                                x:Name="buttonDEL"
+                                Click="btnDEL_Click"
+                                Foreground="White"
+                                FontFamily="/Fonts/Roboto-Thin.ttf"
+                                FontSize="20"
+                                Height="40"
+                                Width="100">
+                                <Bold>
+                                    <Run Text="Xóa"/>
+                                </Bold>
+                            </Button>
+                        </Border>
+                        <Border Background="{StaticResource MY_BLUE}"
+                        Height="40"
+                        Width="100"
+                        CornerRadius="7"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Margin="200,0,0,0">
+                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                                x:Name="buttonEDI"
+                                Click="btnEDI_Click"
+                                Foreground="White"
+                                FontFamily="/Fonts/Roboto-Thin.ttf"
+                                FontSize="20"
+                                Height="40"
+                                Width="100">
+                                <Bold>
+                                    <Run Text="Sửa"/>
+                                </Bold>
+                            </Button>
+                        </Border>
+
+                    </Grid>
+                </StackPanel>
+
+            </TabItem>
+
+            <!-- Tab Cầu thủ / Đội bóng -->
+            <TabItem Header="Cầu thủ/Đội bóng"
+                     FontFamily="/Fonts/Roboto-Thin.ttf"
+                     FontSize="30"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left" 
+                     Margin="355,0,-355,0">
+                <StackPanel>
+                    <Grid Height="100"/>
+
+                    <Grid Height="100">
+                        <TextBlock Margin="80,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số cầu thủ tối thiểu:"/></TextBlock>
+                        <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="420,0,0,0">
+                            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                     FontSize="30"
+                                     Text="{Binding Path=m_PLAYER_NUM_MIN}" 
+                                    />
+                        </Border>
+                        <TextBlock Margin="763,32,0,32"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số tuổi cầu thủ tối thiểu:"/></TextBlock>
+                        <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="1100,0,0,0">
+                            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                     FontSize="30"
+                                     Text="{Binding Path=m_PLAYER_AGE_MIN}" 
+                                    />
+                        </Border>
+
+                    </Grid>
+
+                    <Grid Height="100">
+                        <TextBlock Margin="80,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số cầu thủ tối đa:"/></TextBlock>
+                        <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="420,0,0,0">
+                            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                     FontSize="30"
+                                     Text="{Binding Path=m_PLAYER_NUM_MAX}" 
+                                    />
+                        </Border>
+                        <TextBlock Margin="763,32,0,32"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số tuổi cầu thủ tối đa:"/></TextBlock>
+                        <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="1100,0,0,0">
+                            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                     FontSize="30"
+                                     Text="{Binding Path=m_PLAYER_AGE_MAX}" 
+                                    />
+                        </Border>
+                    </Grid>
+                    <Grid Height="100">
+                        <TextBlock Margin="80,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số cầu thủ ngoại tối đa:"/></TextBlock>
+                        <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="420,0,0,0">
+                            <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                     FontSize="30"
+                                     Text="{Binding Path=m_PLAYER_FOREIGN_MAX}" 
+                                    />
+                        </Border>
+                    </Grid>
+                    <!-- Button thay đổi -->
+                    <Grid Height="145">
+                        <Border Background="{StaticResource MY_BLUE}"
+                        Height="70"
+                        Width="160"
+                        CornerRadius="7"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Margin="900,0,0,0">
+                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                                x:Name="buttonDN_Copy"
+                                Click="btnThayDoiQD_Click"
+                                Foreground="White"
+                                FontFamily="/Fonts/Roboto-Thin.ttf"
+                                FontSize="30"
+                                Height="55"
+                                Width="145" Margin="7.5">
+                                <Bold>
+                                    <Run Text="Thay đổi"/>
+                                </Bold>
+                            </Button>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab điểm số -->
+            <TabItem Header="Điểm số"
+                     FontFamily="/Fonts/Roboto-Thin.ttf"
+                     FontSize="30"
+                     VerticalAlignment="Top"
+                     Margin="530,0,-530,0"
+                     >
+                <StackPanel>
+                    <Grid Height="100"/>
+                    <Grid Height="100">
+                        <Grid Height="100">
+                            <TextBlock Margin="80,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số điểm trận thắng:"/></TextBlock>
+                            <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="420,0,0,0">
+                                <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                    FontSize="30" HorizontalAlignment="Left" Width="44"
+                                    Text="{Binding Path=m_SCORE_THANG}" 
+                                    />
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    <Grid Height="100">
+                        <Grid Height="100">
+                            <TextBlock Margin="80,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số điểm trận hòa:"/></TextBlock>
+                            <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="420,0,0,0">
+                                <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                     FontSize="30" Height="44" VerticalAlignment="Bottom"
+                                    Text="{Binding Path=m_SCORE_HOA}" 
+                                    />
+                            </Border>
+                        </Grid>
+                        <Grid Height="100" Margin="705,0,-705,0">
+                            <TextBlock Margin="-77,32,0,32"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left" FontWeight="Bold"><Run Text="Lưu ý: Số điểm trận THẮNG&gt;HÒA&gt;THUA"/></TextBlock>
+                            <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="80"
+                                Width="635"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="-100,10,0,10" RenderTransformOrigin="-5.371,0.576"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Height="100">
+                        <Grid Height="100">
+                            <TextBlock Margin="80,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"><Run Text="Số điểm trận thua:"/></TextBlock>
+                            <Border BorderBrush="{StaticResource MY_BLUE}"
+                                BorderThickness="3"
+                                Height="50"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="420,0,0,0">
+                                <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                    Text="{Binding Path=m_SCORE_THUA}" 
+                                    />
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Border Background="{StaticResource MY_BLUE}"
+                        Height="70"
+                        Width="160"
+                        CornerRadius="7"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Margin="900,0,0,0">
+                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            x:Name="buttonThayDoiQD"
+                            Click="btnThayDoiQD_Click"
+                            Foreground="White"
+                            FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="30"
+                            Height="55"
+                            Width="145">
+                                <Bold>
+                                    <Run Text="Thay đổi"/>
+                                </Bold>
+                            </Button>
+                        </Border>
+                    </Grid>
+
+                </StackPanel>
+
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Window>

@@ -1,0 +1,83 @@
+﻿<Window x:Class="QuanLyDoiBong.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Views"
+        mc:Ignorable="d"
+        Title="Đăng nhập" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{StaticResource MY_GRAY}"></Grid>
+        <Grid Grid.Row="1" Background="{StaticResource MY_BLUE}">
+            <TextBlock Margin="195,10,192,-10"
+                       Foreground="White"
+                       FontFamily="Arial"
+                       FontSize="20">
+                <Bold>ĐĂNG NHẬP</Bold>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <TextBlock x:Name="TBLoi"
+                       FontFamily="Arial"
+                       Foreground="{StaticResource MY_RED}"
+                       Margin="170,10,170,234"></TextBlock>
+
+            <TextBlock FontFamily="Arial"
+                       Margin="175,55,270,190"
+                       FontSize="13">Tài khoản</TextBlock>
+            <TextBlock FontFamily="Arial"
+                       Margin="175,127,270,118"
+                       FontSize="13">Mật khẩu</TextBlock>
+
+            <Border 
+                BorderThickness="1"
+                BorderBrush="{StaticResource MY_BLUE}"
+                Margin="261,52,126,180"
+                CornerRadius="4">
+                <TextBox x:Name="tbDN1" 
+                         BorderThickness="0" 
+                         Margin="1,1,1,1"
+                         FontFamily="Arial"
+                         FontSize="13"></TextBox>
+            </Border>
+
+            <Border 
+                BorderThickness="1"
+                BorderBrush="{StaticResource MY_BLUE}"
+                Margin="261,122,126,110"
+                CornerRadius="4">
+                <PasswordBox x:Name="TbDN1"
+                             BorderThickness="0"
+                             Margin="1,1,1,1"></PasswordBox>
+            </Border>
+
+            <Border
+                Margin="208,190,208,44"
+                Background="{StaticResource MY_GREEN}"
+                CornerRadius="5">
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        x:Name="buttonDN"
+                        Foreground="White" Margin="2,1,1,2" Width="101">
+                    <!--Click="buttonDN_Click"-->
+                    <Bold>Đăng nhập</Bold>
+                </Button>
+            </Border>
+
+            <TextBlock x:Name="DN_Khach"
+                       Foreground="{StaticResource MY_GREEN}"
+                       Margin="150,230,154,14"
+                       FontFamily="Arial">
+                       <!--MouseLeftButtonDown="DN_Khach_MouseLeftButtonDown"-->
+                       <Underline><Italic><Bold>Đăng nhập dạng người dùng khách</Bold></Italic></Underline>
+            </TextBlock>
+
+        </Grid>
+    </Grid>
+</Window>

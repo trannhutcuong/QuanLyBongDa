@@ -1,0 +1,8 @@
+﻿
+--------DB_QUERY-------------------------------
+
+Sửa hàm------
+public static List<TRANDAU> XemVongDau(byte a_VongDau) --> Đổi thành
+
+
+Thêm hàm----

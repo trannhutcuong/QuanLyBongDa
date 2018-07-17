@@ -1,0 +1,198 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.AccountManagementScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Views"
+        mc:Ignorable="d"
+        Title="Quản lý tài khoản" Height="720" Width="1280" 
+        Top="0" Left="0"
+        ResizeMode="CanMinimize">
+    <StackPanel>
+        <Canvas Width="auto"
+                Height="50"
+                Background="{StaticResource MY_BLUE}">
+
+            <TextBlock FontSize="30"
+                       Canvas.Top="10"
+                       Canvas.Left="490"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/Fonts/Roboto-Thin.ttf">
+                <Bold>QUẢN LÝ TÀI KHOẢN</Bold>
+            </TextBlock>
+
+            <Image Source="/Images/IconManHinh/QuanLyTaiKhoan.png"
+               Width="auto" Height="55"
+                   Canvas.Left="2"
+                   Canvas.Top="-2"/>
+        </Canvas>
+
+        <StackPanel>
+            <Grid Height="80">
+                <!-- Button thoát -->
+                <Border Background="{StaticResource MY_GREEN}"
+                        CornerRadius="5"
+                        Height="50"
+                        Width="100"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="1130,0,0,0">
+                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            Foreground="White"
+                            FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="25"
+                            Height="40"
+                            Width="90"
+                            Click="Button_Thoat_Click">
+                        <Bold>Thoát</Bold>
+                    </Button>
+                </Border>
+
+                <!-- Button xem mật khẩu -->
+                <Border Background="{StaticResource MY_GREEN}"
+                        CornerRadius="5"
+                        Height="50"
+                        Width="200"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="910,0,0,0">
+                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            Foreground="White"
+                            FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="25"
+                            Height="40"
+                            Width="190"
+                            Click="Button_XemMK_Click"
+                            >
+                        <Bold>Xem mật khẩu</Bold>
+                    </Button>
+                </Border>
+
+                <!-- Button tạo lại mật khẩu -->
+                <Border Background="{StaticResource MY_GREEN}"
+                        CornerRadius="5"
+                        Height="50"
+                        Width="110"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="780,0,0,0">
+                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            Foreground="White"
+                            FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="25"
+                            Height="40"
+                            Width="100"
+                            Click="Button_TaoLaiMK_Click">
+                        <Bold>Tạo lại</Bold>
+                    </Button>
+                </Border>
+
+                <!-- Button xóa -->
+                <Border Background="{StaticResource MY_GREEN}"
+                        CornerRadius="5"
+                        Height="50"
+                        Width="80"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="680,0,0,0">
+                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            Foreground="White"
+                            FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="25"
+                            Height="40"
+                            Width="70"
+                            Click="Button_Xoa_Click">
+                        <Bold>Xóa</Bold>
+                    </Button>
+                </Border>
+            </Grid>
+
+            <Grid Height="80">
+                <TextBlock FontFamily="/Fonts/Roboto-Thin.ttf"
+                           FontSize="30"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="50,0,0,0">Số lượng tài khoản:</TextBlock>
+                <Border BorderBrush="{StaticResource MY_BLUE}"
+                        BorderThickness="3"
+                        Height="50"
+                        Width="50"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="340,0,0,0">
+                    <TextBox 
+                             Name="tbSoLuong"
+                             IsEnabled="False"
+                             FontFamily="/Fonts/Roboto-Thin.ttf"
+                             FontSize="30"
+                             Margin="10,5,0,0"
+                             BorderThickness="0"></TextBox>
+                </Border>
+
+            </Grid>
+
+            <Grid Height="470">
+                <Border BorderBrush="{StaticResource MY_BLUE}"
+                        BorderThickness="3"
+                       Margin="40,10,40,10">
+                    <ListView FontFamily="/Fonts/Roboto-Thin.ttf"
+                              FontSize="26"
+                              Name="lvTaiKhoan">
+                        <ListView.View>
+                            <GridView>
+                                <!-- STT -->
+                                <GridViewColumn Header="STT"
+                                                Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding STT}"
+                                                       Margin="70,0,0,0"></TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Tên tài khoản -->
+                                <GridViewColumn
+                                            Header="Tài khoản"
+                                            Width="350">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding USERNAME}"
+                                                       Margin="20,0,0,0"></TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+
+
+                                <!-- Ngày lập -->
+                                <GridViewColumn
+                                            Header="Ngày lập"
+                                            Width="350">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding NGAYLAP}"></TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Loại tài khoản -->
+                                <GridViewColumn
+                                            Header="Loại tài khoản"
+                                            Width="300">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TYPEACC}"
+                                                       Margin="60,0,0,0"></TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,132 @@
+﻿<Window x:Class="QuanLyDoiBong.Views.AccountManagementScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Views"
+        mc:Ignorable="d"
+        Title="Quản lý tài khoản" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{StaticResource MY_GRAY}"></Grid>
+        <Grid Grid.Row="1" Background="{StaticResource MY_BLUE}">
+            <TextBlock Margin="156,10,142,-10"
+                       Foreground="White"
+                       FontFamily="Arial"
+                       FontSize="20">
+                <Bold>QUẢN LÝ TÀI KHOẢN</Bold>
+            </TextBlock>
+
+            <!--<Image Source="Quản_Lý_Tài_Khoản.png"
+                   HorizontalAlignment="Left"></Image>-->
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Border
+                Margin="450,10,10,220"
+                Background="{StaticResource MY_GREEN}"
+                CornerRadius="5">
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        x:Name="buttonThoat"
+                        Foreground="White" Margin="2,1,1,2" Width="60">
+                    <!--Click="buttonThoat_Click"-->
+                    <Bold>Thoát</Bold>
+                </Button>
+            </Border>
+
+            <Border
+                Margin="335,10,70,220"
+                Background="{StaticResource MY_GREEN}"
+                CornerRadius="5">
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        x:Name="buttonXemMK"
+                        Foreground="White" Margin="2,1,1,2" Width="150">
+                    <!--Click="buttonXemMK_Click"-->
+                    <Bold>Xem mật khẩu</Bold>
+                </Button>
+            </Border>
+
+            <Border
+                Margin="270,10,185,220"
+                Background="{StaticResource MY_GREEN}"
+                CornerRadius="5">
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        x:Name="buttonTaoLai"
+                        Foreground="White" Margin="2,1,1,2" Width="65">
+                    <!--Click="buttonTaoLai_Click"-->
+                    <Bold>Tạo lại</Bold>
+                </Button>
+            </Border>
+
+            <Border
+                Margin="220,10,250,220"
+                Background="{StaticResource MY_GREEN}"
+                CornerRadius="5">
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        x:Name="buttonXoa"
+                        Foreground="White" Margin="2,1,1,2" Width="45">
+                    <!--Click="buttonXoa_Click"-->
+                    <Bold>Xóa</Bold>
+                </Button>
+            </Border>
+
+            <TextBlock Text="Số lượng tài khoản:"
+                       FontFamily="Arial"
+                       FontSize="13"
+                       Margin="10,55,387,189"></TextBlock>
+
+            <Border
+                BorderThickness="1"
+                Margin="136,50,351,187"
+                Background="{StaticResource MY_BLUE}">
+                <TextBox x:Name="SL_Taikhoan"
+                         Style="{StaticResource {x:Static ToolBar.TextBoxStyleKey}}"
+                         Width="30"
+                         Margin="1,0.5,1,0.5"
+                         Visibility="Visible"></TextBox>
+            </Border>
+
+            <Border
+                BorderThickness="1"
+                BorderBrush="{StaticResource MY_BLUE}"
+                Margin="10, 80, 10, 10">
+                <ListView Name="LvQLTK"
+                          BorderThickness="0"
+                          FontFamily="Arial"
+                          FontSize="13"
+                          HorizontalAlignment="Stretch">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="STT"
+                                            Width="50"
+                                            DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                            <GridViewColumn 
+                                            Header="Tài khoản"
+                                            Width="180"
+                                            DisplayMemberBinding="{Binding TaiKhoan}"></GridViewColumn>
+                            <GridViewColumn
+                                            Header="Mật khẩu"
+                                            Width="180"
+                                            DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
+                            <GridViewColumn 
+                                            Header="Chọn"
+                                            Width="50">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Margin="5, 0" IsChecked="{Binding Chon}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
+
+        </Grid>
+    </Grid>
+</Window>

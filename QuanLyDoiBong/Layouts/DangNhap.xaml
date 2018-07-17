@@ -1,0 +1,153 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        mc:Ignorable="d"
+        Title="Đăng nhập" Height="520" Width="1280"
+        ResizeMode="CanMinimize"
+        KeyDown="Enter_KeyDown"
+        Top="0" Left="0"
+        >
+    <StackPanel>
+        <Canvas Width="auto"
+                Height="60"
+                Background="{StaticResource MY_BLUE}">
+
+            <TextBlock FontSize="30"
+                       Canvas.Top="15"
+                       Canvas.Left="520"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/Fonts/Roboto-Thin.ttf">
+                <Bold>ĐĂNG NHẬP</Bold>
+            </TextBlock>
+        </Canvas>
+        <Grid>
+            
+            <Image Source="/Images/VLEAGUE.jpg" Height="315"
+                   Width="510"
+                   Margin="0,50,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
+            <StackPanel  
+                Width="700"
+                Height="430"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                Margin="0,0,10,0">
+
+
+                <!-- Tài khoản -->
+                <Grid Height="80" VerticalAlignment="Top"
+                  Margin="20,30,0,0"
+                  >
+                    <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto-Thin.ttf"
+                           Margin="0,20,0,0" 
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left" 
+                           >Tài khoản</TextBlock>
+                    <Border 
+                BorderThickness="3"
+                BorderBrush="{StaticResource MY_BLUE}"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Height="50"
+                Width="288"
+                CornerRadius="5" 
+                Margin="200,15,0,0">
+                        <TextBox x:Name="tbTaiKhoan" 
+                         BorderThickness="0" 
+                         Margin="1,1,1,1"
+                         FontFamily="/Fonts/Roboto-Thin.ttf"
+                         FontSize="30"
+                         KeyDown="tb_KeyDown"></TextBox>
+                    </Border>
+                </Grid>
+
+                <!-- Mật khẩu -->
+                <Grid Height="100" VerticalAlignment="Top"
+                      Margin="20,0,0,0"
+                  >
+                    <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto-Thin.ttf"
+                           Margin="0,0,0,0" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left" 
+                           >Mật khẩu</TextBlock>
+                    <Border 
+                BorderThickness="3"
+                BorderBrush="{StaticResource MY_BLUE}"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Height="50"
+                Width="288"
+                CornerRadius="5" 
+                Margin="200,20,0,0">
+                        <PasswordBox x:Name="pbMatKhau" 
+                         BorderThickness="0" 
+                         Margin="1,1,1,1"
+                         FontFamily="/Fonts/Roboto-Thin.ttf"
+                         FontSize="30"
+                         KeyDown="tb_KeyDown"></PasswordBox>
+                    </Border>
+                </Grid>
+
+                <Grid Height="80" VerticalAlignment="Top"
+                           >
+                    <TextBlock Name="tbThongBao"
+                           FontFamily="/Fonts/Roboto-Thin.ttf"
+                               HorizontalAlignment="Center"
+                           FontSize="25"
+                           Margin="0,0,0,0"
+                           Foreground="{StaticResource MY_RED}"></TextBlock>
+                </Grid>
+
+                <!-- Button đăng nhập-->
+                <Grid Height="100" VerticalAlignment="Top"
+                  HorizontalAlignment="Center"
+                  Margin="0,-20,0,0">
+                    <Border Background="{StaticResource MY_GREEN}"
+                        Height="70"
+                        Width="194"
+                        CornerRadius="7"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" 
+                        
+                        >
+                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            x:Name="buttonDN"
+                            Foreground="White"
+                            FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="30"
+                            Height="55"
+                            Width="185"
+                            Click="buttonDN_Click">
+                            <Bold>Đăng nhập</Bold>
+                        </Button>
+                    </Border>
+                </Grid>
+
+                <!-- Đăng nhập người dùng khách -->
+                <Grid Height="100" VerticalAlignment="Top"
+                  HorizontalAlignment="Center"
+                  Margin="0,-10,0,30">
+                    <TextBlock Name="tbDangNhapKhach"
+                           FontFamily="/Fonts/Roboto-Thin.ttf"
+                           FontSize="30"
+                           Foreground="{StaticResource MY_GREEN}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" 
+                           Height="60"
+                           MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"
+                           MouseMove="tbDangNhapKhach_MouseMove"
+                           MouseLeave="tbDangNhapKhach_MouseLeave">
+                    <Underline><Italic><Bold>Đăng nhập dạng người dùng khách</Bold></Italic></Underline>
+                    </TextBlock>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

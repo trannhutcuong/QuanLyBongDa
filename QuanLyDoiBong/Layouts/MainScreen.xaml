@@ -1,0 +1,105 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.MainScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        mc:Ignorable="d"
+        Title="Home" Height="700" Width="1200" Top="0" Left="0"
+        ResizeMode="CanMinimize"
+        >
+    <Grid>
+        <!--Thanh ngang trên cùng-->
+        <StackPanel Background="{StaticResource MY_GRAY}" Height="10" VerticalAlignment="Top"/>
+
+        <!--Thanh QUẢN LÝ GIẢI BÓNG ĐÁ V-LEAGUES-->
+        <StackPanel Background="{StaticResource MY_BLUE}" Height="80" VerticalAlignment="Top"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+            <Image Source="/Images/QLDBAppIc.ico"
+                   Width="auto"
+                   Height="90"
+                   VerticalAlignment="Top"
+                   Margin="0,-5,0,0"/>
+            <TextBlock HorizontalAlignment="Left"    VerticalAlignment="Center"
+                       Margin="30,0,0,0"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       FontFamily="/Fonts/Roboto.ttf"
+                       Foreground="{StaticResource MY_GRAY}">
+                QUẢN LÝ GIẢI BÓNG ĐÁ V-LEAGUE
+            </TextBlock>
+
+            <StackPanel Orientation="Vertical"
+                        Width="200"
+                        Margin="50,0,0,0"
+                        >
+                <TextBlock Name="txtUserName"
+                       HorizontalAlignment="Center" 
+                           Text="chung"
+                       Margin="0,15,0,10"
+                       FontSize="18"
+                       FontFamily="/Fonts/Roboto.ttf"
+                Foreground="{StaticResource MY_RED}" />
+
+                <Border CornerRadius="5" 
+                        BorderThickness="2"
+                  Background="{StaticResource MY_BLUE}"          BorderBrush="#ffffff"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                          Width="150" Height="33"
+                        Margin="0,-10,0,0"
+                            >
+                    <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                              Background="{StaticResource MY_BLUE}"
+                             HorizontalAlignment="Center"
+                            FontSize="18"
+                             BorderThickness="0"
+                             FontWeight="Bold"
+                             VerticalAlignment="Center"
+                                 Text="BAN QUẢN LÝ"
+                             Foreground="#ffffff"
+                             Name="txtTypeAccount"
+                              />
+                </Border>
+            </StackPanel>
+            <TextBlock 
+                HorizontalAlignment="Left"    VerticalAlignment="Bottom"
+                       Margin="15,0,0,10"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       FontFamily="/Fonts/Roboto.ttf"
+                Foreground="#424242"
+                TextDecorations="Underline"
+                PreviewMouseDown="DangXuatEvent"
+                >
+                Đăng xuất
+            </TextBlock>
+        </StackPanel>
+
+
+        <WrapPanel Name="wp_DanhSachChucNangControl"
+                   Height="530"
+                   Width="1200"
+                   
+                   VerticalAlignment="Top"
+                   Margin="10,100,0,0">
+
+        </WrapPanel>
+
+        <!--Thanh QUẢN LÝ GIẢI BÓNG ĐÁ V-LEAGUES-->
+        <StackPanel Background="{StaticResource MY_BLUE}" Height="40" VerticalAlignment="Bottom"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+            <TextBlock  VerticalAlignment="Center"
+                       Margin="850,0,0,0"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       FontFamily="/Fonts/Roboto.ttf"
+                       Foreground="{StaticResource MY_GRAY}">
+                Bản quyền thuộc về team BCCD
+            </TextBlock>
+        </StackPanel>
+
+    </Grid>
+</Window>

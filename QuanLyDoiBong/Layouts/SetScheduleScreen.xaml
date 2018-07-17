@@ -1,0 +1,48 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.SetScheduleScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        mc:Ignorable="d"
+        Title="SetScheduleScreen" Height="729" Width="1280"
+        Left="0"
+        Top="0"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <StackPanel>
+            
+            <Grid Background="{StaticResource MY_BLUE}" Margin="0,0,0,604" Height="91">
+                <Image Source="/Images/IconManHinh/TaoTranDau.png" Width="auto"
+                   Height="auto"
+                   VerticalAlignment="Center"
+                   Margin="-518,-5,518,0"/>
+                <TextBlock Margin="494,22,457,10"
+                Foreground="White"
+                FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto"
+                FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Left"><Bold><Run Text="LẬP LỊCH THI ĐẤU"/></Bold></TextBlock>
+            </Grid>
+        </StackPanel>
+        
+        <ComboBox x:Name="cbbVongDau" HorizontalAlignment="Left" Margin="216,112,0,0" VerticalAlignment="Top" Width="98" FontSize="24" ItemsSource="{Binding}" SelectionChanged="cbbVongDau_SelectionChanged">
+
+
+        </ComboBox>
+        <Label Content="Vòng đấu:" HorizontalAlignment="Left" Margin="73,112,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24"/>
+        <ListView Name="listView" HorizontalAlignment="Left" Height="400" Margin="73,166,0,0" VerticalAlignment="Top" Width="1135" BorderBrush="{DynamicResource MY_BLUE}" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" SelectionChanged="listView_SelectionChanged" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding STT}"/>
+                    <GridViewColumn Header="Mã trận đấu" Width="148" DisplayMemberBinding="{Binding MATD}"/>
+                    <GridViewColumn Header="Đội 1" Width="200" DisplayMemberBinding="{Binding Doi1}"/>
+                    <GridViewColumn Header="Đội 2" Width="200" DisplayMemberBinding="{Binding Doi2}"/>
+                    <GridViewColumn Header="Ngày giờ" Width="260" DisplayMemberBinding="{Binding NgayGio}"/>
+                    <GridViewColumn Header="Sân" Width="230" DisplayMemberBinding="{Binding San}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="1115,604,0,0" VerticalAlignment="Top" Width="116" BorderBrush="{DynamicResource MY_GREEN}" Background="{DynamicResource MY_GREEN}" Foreground="White" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Click="btnThoat_Click"/>
+        <Button x:Name="btnThem" Content="Thêm" HorizontalAlignment="Left" Margin="825,604,0,0" VerticalAlignment="Top" Width="76" Background="{DynamicResource MY_GREEN}" BorderBrush="{DynamicResource MY_GREEN}" Foreground="White" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Click="btnThem_Click"/>
+        <Button x:Name="btnXoa" Content="Xóa" HorizontalAlignment="Left" Margin="948,604,0,0" VerticalAlignment="Top" Width="74" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Background="{DynamicResource MY_GREEN}" Foreground="#FFFDFDFD" Click="btnXoa_Click"/>
+    </Grid>
+</Window>

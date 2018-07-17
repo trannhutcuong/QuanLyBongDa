@@ -1,0 +1,79 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.TimKiemScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        mc:Ignorable="d"
+        Title="TimKiemScreen" Height="728" Width="1284"
+        Left="0"
+        Top="0"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <StackPanel Background="{StaticResource MY_BLUE}" Height="80" VerticalAlignment="Top"
+            Margin="0,0,-4,0"
+            Orientation="Horizontal">
+
+            <Image Source="/QuanLyDoiBong;component/Images/IconManHinh/TimKiem.png"
+                Width="auto"
+                Height="90"
+                VerticalAlignment="Top"
+                Margin="0,-5,0,0"/>
+
+            <TextBlock HorizontalAlignment="Left"    VerticalAlignment="Center"
+                Margin="450,16,0,16"
+                FontSize="40"
+                FontWeight="Bold"
+                FontFamily="/Fonts/Roboto.ttf"
+                Foreground="#ffffff" Width="195"><Run Text="TÌM KIẾM "/></TextBlock>
+
+        </StackPanel>
+
+
+        <Rectangle Fill="{DynamicResource MY_GRAY}" HorizontalAlignment="Left" Height="2" Margin="0,178,-4,0" Stroke="{DynamicResource MY_GRAY}" VerticalAlignment="Top" Width="1280"/>
+
+        <Label Name="lbTenCanTim"  Content="Nhập tên cần tìm:" HorizontalAlignment="Left" Margin="48,103,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24"/>
+
+        <TextBox Name="txbTenCanTim" HorizontalAlignment="Left" Height="42" Margin="254,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="315" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" BorderBrush="{DynamicResource MY_BLUE}"/>
+
+        <Button x:Name="txbTim" Content="TÌM" HorizontalAlignment="Left" Margin="1102,103,0,0" VerticalAlignment="Top" Width="134" Height="42" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Background="{DynamicResource MY_GREEN}" Foreground="White" Click="txbTim_Click"/>
+
+        <Label x:Name="lbDoiTuong" Content="Đối tượng:" HorizontalAlignment="Left" Margin="574,103,0,0" VerticalAlignment="Top" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24"/>
+
+        <ComboBox x:Name="cbbDoiTuong" HorizontalAlignment="Left" Margin="700,103,0,0" VerticalAlignment="Top" Width="301" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Height="42" SelectionChanged="cbbDoiTuong_SelectionChanged">
+
+            <ComboBoxItem Content="Huấn luyện viên"/>
+
+            <ComboBoxItem Content="Cầu thủ"/>
+
+            <ComboBoxItem Content="Trọng tài"/>
+
+            <ComboBoxItem Content="Đội bóng"/>
+
+        </ComboBox>
+
+        <ListView HorizontalAlignment="Left" Height="388" Margin="48,231,0,0" VerticalAlignment="Top" Width="1156" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Name="lvTimKiem" SelectionChanged="lvCauThu_SelectionChanged">
+
+            <ListView.View>
+
+                <GridView x:Name="grTimKiem">
+
+                    <GridViewColumn Header="STT" Width="100" DisplayMemberBinding="{Binding STT}"/>
+
+                    <GridViewColumn Header="Mã đối tượng" Width="250" DisplayMemberBinding="{Binding MA}"/>
+
+                    <GridViewColumn Header="Họ tên" Width="400" DisplayMemberBinding="{Binding HOTEN}"/>
+
+                    <GridViewColumn Header="Ngày Sinh" Width="400" DisplayMemberBinding="{Binding NGAYSINH}"/>
+
+                </GridView>
+
+            </ListView.View>
+
+        </ListView>
+
+        <Button x:Name="btnChiTiet" Content="CHI TIÊT" HorizontalAlignment="Left" Margin="1067,624,0,0" VerticalAlignment="Top" Width="137" FontFamily="/QuanLyDoiBong;component/Fonts/#Roboto" FontSize="24" Height="44" Background="{DynamicResource MY_GREEN}" Foreground="White" Click="btnChiTiet_Click"/>
+
+
+    </Grid>
+</Window>

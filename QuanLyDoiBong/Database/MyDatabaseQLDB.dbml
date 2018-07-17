@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBD" Class="MyDatabaseQLDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=THANH_CHUNG;Initial Catalog=QLBD;Integrated Security=True" SettingsObjectName="QuanLyDoiBong.Properties.Settings" SettingsPropertyName="QLBDConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
+    <Type Name="ACCOUNT">
+      <Column Name="USERNAME" Type="System.String" DbType="NChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASS" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="TYPEACC" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="NGAYLAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BANTHANG" Member="BANTHANGs">
+    <Type Name="BANTHANG">
+      <Column Name="MACT" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MADB" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATD" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHUTGHIBAN" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LOAIBT" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
+      <Association Name="CAUTHU_BANTHANG" Member="CAUTHU" ThisKey="MACT,MADB" OtherKey="MACT,MADB" Type="CAUTHU" IsForeignKey="true" />
+      <Association Name="DOIBONG_BANTHANG" Member="DOIBONG" ThisKey="MADB" OtherKey="MADB" Type="DOIBONG" IsForeignKey="true" />
+      <Association Name="TRANDAU_BANTHANG" Member="TRANDAU" ThisKey="MATD" OtherKey="MATD" Type="TRANDAU" IsForeignKey="true" />
+      <Association Name="LOAIBANTHANG_BANTHANG" Member="LOAIBANTHANG" ThisKey="LOAIBT" OtherKey="MABT" Type="LOAIBANTHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CAUTHU" Member="CAUTHUs">
+    <Type Name="CAUTHU">
+      <Column Name="MACT" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MADB" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QUOCTICH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SONAMKINHNGHIEM" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AVATAR" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SOBANTHANG" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="VITRI" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="CAUTHU_BANTHANG" Member="BANTHANGs" ThisKey="MACT,MADB" OtherKey="MACT,MADB" Type="BANTHANG" />
+      <Association Name="DOIBONG_CAUTHU" Member="DOIBONG" ThisKey="MADB" OtherKey="MADB" Type="DOIBONG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DOIBONG" Member="DOIBONGs">
+    <Type Name="DOIBONG">
+      <Column Name="MADB" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENDOIBONG" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SOLUONGCAUTHU" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TENSANNHA" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="TINHTHANH" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NGAYTHANHLAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SOBANTHANG" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SOBANTHUA" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TONGDIEM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="DOIBONG_BANTHANG" Member="BANTHANGs" ThisKey="MADB" OtherKey="MADB" Type="BANTHANG" />
+      <Association Name="DOIBONG_CAUTHU" Member="CAUTHUs" ThisKey="MADB" OtherKey="MADB" Type="CAUTHU" />
+      <Association Name="DOIBONG_HUANLUYENVIEN" Member="HUANLUYENVIENs" ThisKey="MADB" OtherKey="MADB" Type="HUANLUYENVIEN" />
+      <Association Name="DOIBONG_TRANDAU" Member="TRANDAUs" ThisKey="MADB" OtherKey="DOI1" Type="TRANDAU" />
+      <Association Name="DOIBONG_TRANDAU1" Member="TRANDAUs1" ThisKey="MADB" OtherKey="DOI2" Type="TRANDAU" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRONGTAI" Member="TRONGTAIs">
+    <Type Name="TRONGTAI">
+      <Column Name="MATT" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QUOCTICH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SONAMKINHNGHIEM" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AVATAR" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LOAITRONGTAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TRONGTAI_TRANDAU_TRONGTAI" Member="TRANDAU_TRONGTAIs" ThisKey="MATT" OtherKey="MATT" Type="TRANDAU_TRONGTAI" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QUYDINH" Member="QUYDINHs">
+    <Type Name="QUYDINH">
+      <Column Name="MAQD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PLAYER_AGE_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PLAYER_AGE_MIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PLAYER_NUM_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PLAYER_NUM_MIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PLAYER_FOREIGN_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THOI_DIEM_GHI_BAN_MAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SCORE_THANG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SCORE_THUA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SCORE_HOA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HUANLUYENVIEN" Member="HUANLUYENVIENs">
+    <Type Name="HUANLUYENVIEN">
+      <Column Name="MAHLV" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MADB" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QUOCTICH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SONAMKINHNGHIEM" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AVATAR" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LOAIHLV" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="DOIBONG_HUANLUYENVIEN" Member="DOIBONG" ThisKey="MADB" OtherKey="MADB" Type="DOIBONG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRANDAU_TRONGTAI" Member="TRANDAU_TRONGTAIs">
+    <Type Name="TRANDAU_TRONGTAI">
+      <Column Name="MATD" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATT" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TRONGTAI_TRANDAU_TRONGTAI" Member="TRONGTAI" ThisKey="MATT" OtherKey="MATT" Type="TRONGTAI" IsForeignKey="true" />
+      <Association Name="TRANDAU_TRANDAU_TRONGTAI" Member="TRANDAU" ThisKey="MATD" OtherKey="MATD" Type="TRANDAU" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRANDAU" Member="TRANDAUs">
+    <Type Name="TRANDAU">
+      <Column Name="MATD" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NGAYDIENRA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DOI1" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DOI2" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="SCORED1" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SCORED2" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TENSAN" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="VONGDAU" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="GHINHAN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TRANDAU_BANTHANG" Member="BANTHANGs" ThisKey="MATD" OtherKey="MATD" Type="BANTHANG" />
+      <Association Name="TRANDAU_TRANDAU_TRONGTAI" Member="TRANDAU_TRONGTAIs" ThisKey="MATD" OtherKey="MATD" Type="TRANDAU_TRONGTAI" />
+      <Association Name="DOIBONG_TRANDAU" Member="DOIBONG" ThisKey="DOI1" OtherKey="MADB" Type="DOIBONG" IsForeignKey="true" />
+      <Association Name="DOIBONG_TRANDAU1" Member="DOIBONG1" ThisKey="DOI2" OtherKey="MADB" Type="DOIBONG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAIBANTHANG" Member="LOAIBANTHANGs">
+    <Type Name="LOAIBANTHANG">
+      <Column Name="MABT" Type="System.Char" DbType="NChar(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENBT" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Association Name="LOAIBANTHANG_BANTHANG" Member="BANTHANGs" ThisKey="MABT" OtherKey="LOAIBT" Type="BANTHANG" />
+    </Type>
+  </Table>
+</Database>

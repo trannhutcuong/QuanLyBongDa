@@ -1,0 +1,537 @@
+﻿<Window x:Class="QuanLyDoiBong.Layouts.DangKyDoiBong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyDoiBong.Layouts"
+        mc:Ignorable="d"
+        Title="Đăng Ký Đội Bóng"  Height="728" Width="1284"
+        Left="0"
+        Top="0"
+        ResizeMode="CanMinimize"
+     
+        KeyDown="EnterEvent"
+        >
+    <Grid>
+        <!--Thanh ngang trên cùng-->
+        <StackPanel Background="{StaticResource MY_GRAY}" Height="10" VerticalAlignment="Top"/>
+
+        <!--Thanh ĐĂNG KÝ ĐỘI BÓNG-->
+        <StackPanel Background="{StaticResource MY_BLUE}" Height="80" VerticalAlignment="Top"
+                    Margin="0,10,0,0"
+                    Orientation="Horizontal">
+            <Image Source="/Images/IconManHinh/DangKyDoiBong.png"
+                   Width="auto"
+                   Height="90"
+                   VerticalAlignment="Top"
+                   Margin="0,-5,0,0"/>
+            <TextBlock HorizontalAlignment="Left"    VerticalAlignment="Center"
+                       Margin="380,0,0,0"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       FontFamily="/Fonts/Roboto.ttf"
+                       Foreground="#ffffff">
+                ĐĂNG KÝ ĐỘI BÓNG
+            </TextBlock>
+        </StackPanel>
+
+
+        <!--Ô NHẬP ĐẦU-->
+        <StackPanel Orientation="Horizontal"            
+                    >
+            <!--Thanh NHẬP MADB, TENDOIBONG, NAMTHANHLAP-->
+            <StackPanel Orientation="Vertical"
+                    Height="170"
+                    VerticalAlignment="Top"
+                    Margin="50,90,0,0"
+                    
+                    >
+                <!--MADOIBONG-->
+                <StackPanel Orientation="Horizontal">
+                    <!-- NUM 1-->
+                    <TextBlock FontSize="25"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="0, 20, 0, 0"
+                           Foreground="{StaticResource MY_GRAY}"
+                           >
+                    Mã đội bóng:
+                    </TextBlock>
+
+                    <!-- NUM 2-->
+                    <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="59, 20, 0, 0"
+                           Foreground="{StaticResource MY_RED}"
+                           >
+                    *
+                    </TextBlock>
+
+                    <!-- NUM 3-->
+                    <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="30,15,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="300" Height="35"
+                            >
+                        <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="20"
+                             BorderThickness="0"
+                                 Text="{Binding Path=m_MaDoiBong}"
+                                    VerticalAlignment="Center"    
+                              >
+
+                        </TextBox>
+                    </Border>
+                </StackPanel>
+
+                <!--TENDOIBONG-->
+                <StackPanel Orientation="Horizontal">
+                    <!-- NUM 1-->
+                    <TextBlock FontSize="25"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="0, 20, 0, 0"
+                           Foreground="{StaticResource MY_GRAY}"
+                           >
+                    Tên đội bóng:
+                    </TextBlock>
+
+                    <!-- NUM 2-->
+                    <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="56, 20, 0, 0"
+                           Foreground="{StaticResource MY_RED}"
+                           >
+                    *
+                    </TextBlock>
+
+                    <!-- NUM 3-->
+                    <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="30,15,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="300" Height="35"
+                            >
+                        <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="20"
+                             BorderThickness="0"
+                                 Text="{Binding Path=m_TenDoiBong}" VerticalAlignment="Center"
+                             
+                              >
+
+                        </TextBox>
+                    </Border>
+                </StackPanel>
+
+                <!--NAM THANH LAP-->
+                <StackPanel Orientation="Horizontal">
+                    <!-- NUM 1-->
+                    <TextBlock FontSize="25"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="0, 20, 0, 0"
+                           Foreground="{StaticResource MY_GRAY}"
+                           >
+                    Ngày thành lập:
+                    </TextBlock>
+
+                    <!-- NUM 2-->
+                    <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="33, 20, 0, 0"
+                           Foreground="{StaticResource MY_RED}"
+                           >
+                    *
+                    </TextBlock>
+
+                    <!-- NUM 3-->
+                    <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="30,15,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="150" Height="35"
+                            >
+                        <DatePicker 
+                        VerticalContentAlignment="Center"
+                        Text="{Binding Path=m_NgayThanhLap}"
+                        SelectedDate="{Binding m_NgayThanhLap, UpdateSourceTrigger=LostFocus}"
+                        HorizontalAlignment="Left"
+                    Margin="0,0,0,0"
+                                FontSize="20"
+                                FontFamily="/Fonts/Roboto.ttf"
+                                Height="35"
+                                Width="140"
+                                BorderThickness="0"      
+                    VerticalAlignment="Top"
+                                
+                               />
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+
+            <!--Thanh nhập TENSANNHA TINH/TP-->
+            <StackPanel Orientation="Vertical"
+                    Height="200"
+                    VerticalAlignment="Top"
+                    Margin="130,90,0,0"
+                    >
+                <!--SÂN NHÀ-->
+                <StackPanel Orientation="Horizontal">
+                    <!-- NUM 1-->
+                    <TextBlock FontSize="25"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="0, 20, 0, 0"
+                           Foreground="{StaticResource MY_GRAY}"
+                           >
+                    Tên sân nhà:
+                    </TextBlock>
+
+                    <!-- NUM 2-->
+                    <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="36, 20, 0, 0"
+                           Foreground="{StaticResource MY_RED}"
+                           >
+                    *
+                    </TextBlock>
+
+                    <!-- NUM 3-->
+                    <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="30,15,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="300" Height="35"
+                            >
+                        <TextBox FontFamily="/Fonts/Roboto-Thin.ttf"
+                                 Text="{Binding Path=m_TenSanNha}" 
+                            FontSize="20"
+                             BorderThickness="0"
+                                 VerticalAlignment="Center"
+                             
+                              >
+
+                        </TextBox>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Height="100"
+                    Width="600"
+                    Margin="0, 20, 0, 270"
+                    >
+                    <TextBlock FontSize="25"
+                           FontFamily="/Fonts/Roboto.ttf"
+                       HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="0, 0, 0, 0"
+                       Foreground="{StaticResource MY_GRAY}"
+                       >
+                  Tỉnh/TP:
+                    </TextBlock>
+
+                    <!-- NUM 2-->
+                    <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="80, 3, 0, 0"
+                           Foreground="{StaticResource MY_RED}"
+                           >
+                    *
+                    </TextBlock>
+                    <!-- NUM 3-->
+
+                    <Border CornerRadius="0" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                 Width="200" Height="40"
+                HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+                    
+                Margin="30,0,0,0">
+
+                        <ComboBox Name="cbbTinhTP"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Height="46"
+                          FontSize="20"
+                          SelectedIndex="0"
+                          Text="{Binding Path=m_TinhThanh, Mode=OneWayToSource}"        MaxDropDownHeight="150">
+
+
+                        </ComboBox>
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Background="{StaticResource MY_GRAY}" Height="2" VerticalAlignment="Top"
+                    Margin="0,260,0,0"/>
+
+        <!--HLV-->
+        <Grid HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Height="150"
+              Width="1284"
+              Margin="30,272,0,0">
+            <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_GREEN}"
+                             Margin="0,0,0,0"
+                            HorizontalAlignment="Left"
+                    Background="{StaticResource MY_GREEN}"
+                            VerticalAlignment="Top"
+                            Width="180" Height="35"
+                            >
+                <TextBox 
+                    HorizontalAlignment="Center"
+                    FontFamily="/Fonts/Roboto-Thin.ttf"
+                    Background="{StaticResource MY_GREEN}"
+                            FontSize="20"
+                    BorderThickness="0"
+                    FontWeight="SemiBold"
+                             
+                                 VerticalAlignment="Center"
+                            Foreground="#FFFFFF"
+                              >
+                    Huấn Luyện Viên
+
+                </TextBox>
+
+            </Border>
+
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                 FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="20"
+                Foreground="{StaticResource MY_GRAY}"
+                Margin="230,5,0,0"
+                >
+                Số lượng:
+            </TextBlock>
+
+            <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="340,0,0,0"
+                            HorizontalAlignment="Left"
+                   
+                            VerticalAlignment="Top"
+                            Width="50" Height="35"
+                            >
+                <TextBlock 
+                    Name="txtSoLuongHLV"
+                    HorizontalAlignment="Center"
+                    FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="20"
+                    FontWeight="SemiBold"
+                                 VerticalAlignment="Center"
+                            
+                              >
+                    0
+
+                </TextBlock>
+
+            </Border>
+
+            <Button Height="50" Width="50"
+                    Background="#FFFFFF"
+                    Name="btnAddHLV"
+                    BorderThickness="0"
+                    Click="btnAddHLV_Click"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                    Margin="1130,-5,0,0"
+                    >
+
+                <Image Source="/Images/IconManHinh/icon_add.png"/>
+            </Button>
+
+            <ListView
+                Name="lvHLV"
+                Background="AliceBlue"
+                Height="100"
+                Width="1230"
+                BorderBrush="{StaticResource MY_BLUE}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Margin="0,0,0,5"
+                FontSize="16">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding m_STT}" Width="70"/>
+                        <GridViewColumn Header="Mã"
+                                        DisplayMemberBinding="{Binding m_MaHLV}" Width="100"/>
+                        <GridViewColumn Header="Họ tên"
+                                        DisplayMemberBinding="{Binding m_HoTen}" Width="300"/>
+                        <GridViewColumn Header="Ngày sinh"
+                                        DisplayMemberBinding="{Binding m_NgaySinhStr}" Width="150"/>
+                        <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding m_DiaChi}" Width="450"/>
+                        <GridViewColumn Header="Loại HLV" DisplayMemberBinding="{Binding m_LoaiHLVStr}" Width="100"/>
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+
+        </Grid>
+
+        <StackPanel Background="{StaticResource MY_GRAY}" Height="2" VerticalAlignment="Top"
+                    Margin="0,430,0,0"/>
+
+
+        <!--CAUTHU-->
+        <Grid HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Height="190"
+              Width="1284"
+              Margin="30,442,0,0">
+            <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_GREEN}"
+                             Margin="0,0,0,0"
+                            HorizontalAlignment="Left"
+                    Background="{StaticResource MY_GREEN}"
+                            VerticalAlignment="Top"
+                            Width="180" Height="35"
+                            >
+                <TextBox 
+                    HorizontalAlignment="Center"
+                    FontFamily="/Fonts/Roboto-Thin.ttf"
+                    Background="{StaticResource MY_GREEN}"
+                            FontSize="20"
+                    BorderThickness="0"
+                    FontWeight="SemiBold"
+                             
+                                 VerticalAlignment="Center"
+                            Foreground="#FFFFFF"
+                              >
+                    Cầu thủ
+
+                </TextBox>
+
+            </Border>
+
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                 FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="20"
+                Foreground="{StaticResource MY_GRAY}"
+                Margin="230,5,0,0"
+                >
+                Số lượng:
+            </TextBlock>
+
+            <Border CornerRadius="5" BorderThickness="2"
+                            BorderBrush="{StaticResource MY_BLUE}"
+                             Margin="340,0,0,0"
+                            HorizontalAlignment="Left"
+                   
+                            VerticalAlignment="Top"
+                            Width="50" Height="35"
+                            >
+                <TextBlock 
+                    Name="txtSoLuongCauThu"
+                    HorizontalAlignment="Center"
+                    FontFamily="/Fonts/Roboto-Thin.ttf"
+                            FontSize="20"
+                    FontWeight="SemiBold"
+                             
+                    VerticalAlignment="Center"
+                            
+                              >
+                    0
+
+                </TextBlock>
+
+            </Border>
+
+            <Button Height="50" Width="50"
+                    Background="#FFFFFF"
+                    Name="btnAddCauThu"
+                    BorderThickness="0"
+                    Click="btnAddCauThu_Click"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                    Margin="1130,-5,0,0"
+                    >
+
+                <Image Source="/Images/IconManHinh/icon_add.png"/>
+            </Button>
+            <ListView
+                Name="lvCauThu"
+                Background="AliceBlue"
+                Height="140"
+                Width="1230"
+                BorderBrush="{StaticResource MY_BLUE}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Margin="0,0,0,5"
+                FontSize="16">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding m_STT}" Width="70"/>
+                        <GridViewColumn Header="Mã"
+                                        DisplayMemberBinding="{Binding m_MaCauThu}" Width="100"/>
+                        <GridViewColumn Header="Họ tên"
+                                        DisplayMemberBinding="{Binding m_HoTen}" Width="300"/>
+                        <GridViewColumn Header="Ngày sinh"
+                                        DisplayMemberBinding="{Binding m_NgaySinhStr}" Width="150"/>
+                        <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding m_DiaChi}" Width="450"/>
+                        <GridViewColumn Header="Loại cầu thủ" DisplayMemberBinding="{Binding m_ViTri}" Width="100"/>
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+
+
+        </Grid>
+
+
+        <StackPanel Background="{StaticResource MY_GRAY}" Height="2" VerticalAlignment="Top"
+                    Margin="0,630,0,0"/>
+
+        <!--BUTTON THÊM-->
+        <Border CornerRadius="5" BorderThickness="4"
+                            BorderBrush="{StaticResource MY_GRAY}"
+                 Width="120" Height="50"
+                HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+                Margin="0,0,600,5"
+                >
+            <Button Background="{StaticResource MY_GREEN}"
+                    Name="btnLuuDoiBong"
+                    Click="btnLuuDoiBong_Click"
+                    >
+                <TextBlock FontSize="30"
+                           FontFamily="/Fonts/Roboto.ttf"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0, 0, 0, 0"
+                           Foreground="#FFFFFF">
+                    LƯU
+                </TextBlock>
+            </Button>
+        </Border>
+    </Grid>
+</Window>
